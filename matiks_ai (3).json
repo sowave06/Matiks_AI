@@ -1,0 +1,1072 @@
+{
+  "name": "matiks_ai",
+  "nodes": [
+    {
+      "parameters": {
+        "url": "https://api.apify.com/v2/datasets/G5rrLXAaIzddDbKac/items?token=apify_api_gM7hQ1dzQUgkctbQXGBaImo9t1FWtB3T9meP",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        416,
+        -112
+      ],
+      "id": "1d77bdd8-dff9-4822-9f66-3c853144e69e",
+      "name": "HTTP Request"
+    },
+    {
+      "parameters": {
+        "maxItems": 3
+      },
+      "type": "n8n-nodes-base.limit",
+      "typeVersion": 1,
+      "position": [
+        640,
+        -112
+      ],
+      "id": "36608382-167e-4970-8170-fda4542a4b68",
+      "name": "Limit"
+    },
+    {
+      "parameters": {
+        "url": "https://api.apify.com/v2/datasets/VTIXnQG0HXbVAiSCy/items?token=apify_api_gM7hQ1dzQUgkctbQXGBaImo9t1FWtB3T9meP",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        416,
+        128
+      ],
+      "id": "73092411-39d3-4987-b6b7-2666457af4e6",
+      "name": "HTTP Request1"
+    },
+    {
+      "parameters": {
+        "maxItems": 3
+      },
+      "type": "n8n-nodes-base.limit",
+      "typeVersion": 1,
+      "position": [
+        640,
+        128
+      ],
+      "id": "8a6e2332-18e7-495a-8eaa-875e4752bcd2",
+      "name": "Limit1"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "6ee2b80b-f5a3-49d2-bc71-7dad92d485db",
+              "name": "type",
+              "value": "={{ $json.type }}",
+              "type": "string"
+            },
+            {
+              "id": "4f09331f-9014-46a7-a2ba-25b990851f5e",
+              "name": "body",
+              "value": "={{ $json.text }}",
+              "type": "string"
+            },
+            {
+              "id": "c5699701-c037-46b9-bf77-9ac304b15e46",
+              "name": "platform",
+              "value": "={{ $json.source }}",
+              "type": "string"
+            },
+            {
+              "id": "4cf220d3-cc46-4a5d-bb31-e352edb8c122",
+              "name": "createdAt",
+              "value": "={{ $json.createdAt }}",
+              "type": "string"
+            },
+            {
+              "id": "787c38c3-d617-4afe-93db-3f33a1851c5d",
+              "name": "username",
+              "value": "={{ $json.author.userName }}",
+              "type": "string"
+            },
+            {
+              "id": "901e537e-2b9f-4f41-840b-fa64b8e65632",
+              "name": "url",
+              "value": "={{ $json.url }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        880,
+        -112
+      ],
+      "id": "46b1829c-a372-4746-856d-dbede59271c6",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "2ad67a80-de09-44eb-b51a-8806b53cd560",
+              "name": "platform",
+              "value": "={{ $json.platform }}",
+              "type": "string"
+            },
+            {
+              "id": "5e7d31ee-3337-4354-a1f3-bcd9580b20f4",
+              "name": "body",
+              "value": "={{ $json.description }}",
+              "type": "string"
+            },
+            {
+              "id": "7f41dfff-e194-4f6c-9ffb-cd48bf172e6a",
+              "name": "username",
+              "value": "={{ $json.authorUsername }}",
+              "type": "string"
+            },
+            {
+              "id": "56eef767-33d3-454a-8017-67f75a3d6d96",
+              "name": "type",
+              "value": "={{ $json.postType }}",
+              "type": "string"
+            },
+            {
+              "id": "d54431a6-7855-4c7c-a0f4-a22d553201ef",
+              "name": "url",
+              "value": "={{ $json.postUrl }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        880,
+        128
+      ],
+      "id": "d2c702d9-829e-4d19-889e-452b47552053",
+      "name": "Edit Fields1"
+    },
+    {
+      "parameters": {
+        "numberInputs": 5
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        1296,
+        80
+      ],
+      "id": "ea5e6e3d-3abe-4ff4-bcbc-67928b3d8980",
+      "name": "Merge"
+    },
+    {
+      "parameters": {
+        "url": "https://api.apify.com/v2/datasets/wH6IpWxfcBggvCYaW/items?token=apify_api_gM7hQ1dzQUgkctbQXGBaImo9t1FWtB3T9meP",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        416,
+        -384
+      ],
+      "id": "a28b2e47-08f3-4801-8d34-227b68bbbc68",
+      "name": "HTTP Request3"
+    },
+    {
+      "parameters": {
+        "maxItems": 3
+      },
+      "type": "n8n-nodes-base.limit",
+      "typeVersion": 1,
+      "position": [
+        640,
+        -384
+      ],
+      "id": "44e8f240-dfda-475d-be6e-91d70c235e53",
+      "name": "Limit2"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "268eff09-fe8c-46f3-bc49-8bf4b0b5f9d0",
+              "name": "type",
+              "value": "={{ $json.kind }}",
+              "type": "string"
+            },
+            {
+              "id": "32912360-0be4-4f99-a7c4-29189af516f1",
+              "name": "body",
+              "value": "={{ $json.body }}",
+              "type": "string"
+            },
+            {
+              "id": "5c43f76e-d73c-48ba-81c4-9cf4a059bba9",
+              "name": "username",
+              "value": "={{ $json.author }}",
+              "type": "string"
+            },
+            {
+              "id": "46bfdd92-80dc-4a71-a369-6ae751f56a7b",
+              "name": "createdAt",
+              "value": "={{ $json.created_utc }}",
+              "type": "string"
+            },
+            {
+              "id": "bc5f4748-dd43-4206-90f7-13458631492d",
+              "name": "platform",
+              "value": "=reddit",
+              "type": "string"
+            },
+            {
+              "id": "c6156db6-7203-436b-9fdf-df8a73c1f69d",
+              "name": "url",
+              "value": "={{ $json.url }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        880,
+        -384
+      ],
+      "id": "7521c0cd-4c38-4f9c-bc74-7543e4b7eeb8",
+      "name": "Edit Fields2"
+    },
+    {
+      "parameters": {
+        "url": "https://api.apify.com/v2/datasets/s9eJ93Ch7Ald2cup0/items?token=apify_api_gM7hQ1dzQUgkctbQXGBaImo9t1FWtB3T9meP",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        416,
+        384
+      ],
+      "id": "88c888fc-ec15-49e9-9504-f73d1c4ae54b",
+      "name": "HTTP Request4"
+    },
+    {
+      "parameters": {
+        "maxItems": 3
+      },
+      "type": "n8n-nodes-base.limit",
+      "typeVersion": 1,
+      "position": [
+        640,
+        384
+      ],
+      "id": "d0dd822d-a84e-4800-9226-fe431da8ebe7",
+      "name": "Limit3"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "c8684b0b-0446-44a5-9685-5a4ac86ba080",
+              "name": "username",
+              "value": "={{ $json.reviewer }}",
+              "type": "string"
+            },
+            {
+              "id": "640dbca4-416e-4834-994f-33378a61efb3",
+              "name": "createdAt",
+              "value": "={{ $json.date }}",
+              "type": "string"
+            },
+            {
+              "id": "6c1f63ac-7660-4b14-bd90-ae6f57873ddc",
+              "name": "body",
+              "value": "={{ $json.body }}",
+              "type": "string"
+            },
+            {
+              "id": "80a0531c-520f-4352-9af7-c4aea9692cbe",
+              "name": "url",
+              "value": "={{ $json.appId }}",
+              "type": "string"
+            },
+            {
+              "id": "9370d569-7db1-4d2f-9d9e-ba89ef5d700d",
+              "name": "platform",
+              "value": "Playstore",
+              "type": "string"
+            },
+            {
+              "id": "edeccdf8-590b-4589-9820-fcb919cc153e",
+              "name": "type",
+              "value": "review",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        880,
+        384
+      ],
+      "id": "44776388-0676-499a-a930-a1bdc0842beb",
+      "name": "Edit Fields3"
+    },
+    {
+      "parameters": {
+        "url": "https://api.apify.com/v2/datasets/lgVN3ajmqBKZ5q7wC/items?token=apify_api_gM7hQ1dzQUgkctbQXGBaImo9t1FWtB3T9meP",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        400,
+        608
+      ],
+      "id": "1fccc96c-51fb-4610-8847-6ee71ba7ac92",
+      "name": "HTTP Request5"
+    },
+    {
+      "parameters": {
+        "maxItems": 3
+      },
+      "type": "n8n-nodes-base.limit",
+      "typeVersion": 1,
+      "position": [
+        640,
+        608
+      ],
+      "id": "2d2e27d9-8a64-4f10-b4a8-8316cd75dee3",
+      "name": "Limit4"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "9a7dbb72-ec7c-42c3-a940-21d3afbf999a",
+              "name": "createdAt",
+              "value": "={{ $json.date }}",
+              "type": "string"
+            },
+            {
+              "id": "6d755268-0a0c-4a28-9c88-aeb3f963a408",
+              "name": "username",
+              "value": "={{ $json.userName }}",
+              "type": "string"
+            },
+            {
+              "id": "f06041f7-67cf-4c97-b695-f2f387d19c7a",
+              "name": "url",
+              "value": "={{ $json.url }}",
+              "type": "string"
+            },
+            {
+              "id": "94513d7e-9d15-4175-b8db-082cd115d16c",
+              "name": "platform",
+              "value": "Appstore",
+              "type": "string"
+            },
+            {
+              "id": "2e220689-63a1-4b80-91d9-e0a2afa18761",
+              "name": "type",
+              "value": "review",
+              "type": "string"
+            },
+            {
+              "id": "dd850a4d-342e-44a1-a07c-ced9ca490ee9",
+              "name": "body",
+              "value": "={{ $json.text }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        880,
+        608
+      ],
+      "id": "e93b17fb-12dc-4c02-bba8-3e8ab5c6eb42",
+      "name": "Edit Fields4"
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4.1-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-4.1-MINI"
+        },
+        "responses": {
+          "values": [
+            {
+              "content": "=You are a strict business text classification engine.\n\nAnalyze the provided content and return STRICT JSON only.\ndont keep ```json in text output\n\nClassify into:\n\n1. sentiment → \"positive\", \"neutral\", \"negative\"\n2. urgency → \"low\", \"medium\", \"high\", \"critical\"\n3. category → one of:\n   \"praise\",\n   \"complaint\",\n   \"bug\",\n   \"feature_request\",\n   \"question\",\n   \"support_request\",\n   \"spam\",\n   \"other\"\n\nGuidelines:\n\nUrgency:\n- low → informational, casual\n- medium → mild issue or suggestion\n- high → strong dissatisfaction, recurring issue\n- critical → outage, payment failure, legal risk, safety issue\n\nCategory:\n- praise → positive feedback\n- complaint → dissatisfaction without technical issue\n- bug → crash, error, not working\n- feature_request → asking for improvement\n- question → asking information\n- support_request → needs help\n- spam → irrelevant promotion\n- other → unclear\n\nRules:\n- Return ONLY valid JSON.\n- No markdown.\n- No explanation outside JSON.\n- If unsure, default to:\n  sentiment = \"neutral\"\n  urgency = \"low\"\n  category = \"other\"\n\nReturn format:\n{\n  \"type\": \"\",\n  \"platform\": \"\",\n  \"author\": \"\",\n  \"created_at\": \"\",\n  \"url\": \"\",\n  \"body\": \"\",\n  \"sentiment\": \"\",\n  \"urgency\": \"\",\n  \"category\": \"\",\n  \"reason\": \"\"\n}\n\n\nType: {{ $json.type }}\nPlatform: {{ $json.platform }}\nAuthor: {{ $json.username }}\nCreated At: {{ $json.createdAt }}\nURL: {{ $json.url }}\nBody:{{ $json.body }}\n"
+            }
+          ]
+        },
+        "builtInTools": {},
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 2.1,
+      "position": [
+        2000,
+        144
+      ],
+      "id": "adb3010c-7e6a-40ad-acb8-6a9097ad4444",
+      "name": "Message a model1"
+    },
+    {
+      "parameters": {
+        "operation": "insert",
+        "collection": "mentions",
+        "fields": "type,platform,author,created_at,url,body,sentiment,urgency,category,reason",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.mongoDb",
+      "typeVersion": 1.2,
+      "position": [
+        2400,
+        320
+      ],
+      "id": "5260d91d-e291-4e8e-9c14-5bd93c64f097",
+      "name": "Insert documents"
+    },
+    {
+      "parameters": {
+        "batchSize": 3,
+        "options": {
+          "reset": false
+        }
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        1616,
+        128
+      ],
+      "id": "1dfdb04a-c778-4b3c-ac14-ecdef55aa032",
+      "name": "Loop Over Items"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.convertToFile",
+      "typeVersion": 1.1,
+      "position": [
+        2304,
+        -336
+      ],
+      "id": "4a46c64c-cf73-4508-ade4-f16bec891eee",
+      "name": "Convert to File"
+    },
+    {
+      "parameters": {
+        "subject": "✅ Matiks App Reviews Processed!",
+        "emailType": "text",
+        "message": "Your n8n loop has successfully scraped, batched, and analyzed all reviews through the AI. The Google Sheet is fully updated and ready for the dashboard.",
+        "options": {
+          "attachmentsUi": {
+            "attachmentsBinary": [
+              {}
+            ]
+          }
+        }
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        2592,
+        -400
+      ],
+      "id": "ddca204c-37ca-4ca3-b6fb-9cd50477ad21",
+      "name": "Send a message",
+      "webhookId": "72ad6001-7b0e-4eac-b3df-17aa22108c0c"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1tuTLo7xp396TJtL8OofM0-uV0wGbVF9y6e2k2jOLtqg",
+          "mode": "list",
+          "cachedResultName": "Matiks Revies",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1tuTLo7xp396TJtL8OofM0-uV0wGbVF9y6e2k2jOLtqg/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 360872389,
+          "mode": "list",
+          "cachedResultName": "Sheet2",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1tuTLo7xp396TJtL8OofM0-uV0wGbVF9y6e2k2jOLtqg/edit#gid=360872389"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "type": "={{ $json.type }}",
+            "author": "={{ $json.author }}",
+            "platform": "={{ $json.platform }}",
+            "body": "={{ $json.body }}",
+            "sentiment": "={{ $json.sentiment }}",
+            "urgency": "={{ $json.urgency }}",
+            "reason": "={{ $json.reason }}",
+            "created_at": "={{ $json.created_at }}",
+            "url": "={{ $json.url }}",
+            "category": "={{ $json.category }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "type",
+              "displayName": "type",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "author",
+              "displayName": "author",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "body",
+              "displayName": "body",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "platform",
+              "displayName": "platform",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "sentiment",
+              "displayName": "sentiment",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "urgency",
+              "displayName": "urgency",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "reason",
+              "displayName": "reason",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "created_at",
+              "displayName": "created_at",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "url",
+              "displayName": "url",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "category",
+              "displayName": "category",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        1840,
+        560
+      ],
+      "id": "344482e3-7865-43de-8ee4-18b6ece752b9",
+      "name": "Append row in sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "MiKwxAiFstuJU381",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1tuTLo7xp396TJtL8OofM0-uV0wGbVF9y6e2k2jOLtqg",
+          "mode": "list",
+          "cachedResultName": "Matiks Revies",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1tuTLo7xp396TJtL8OofM0-uV0wGbVF9y6e2k2jOLtqg/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 360872389,
+          "mode": "list",
+          "cachedResultName": "Sheet2",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1tuTLo7xp396TJtL8OofM0-uV0wGbVF9y6e2k2jOLtqg/edit#gid=360872389"
+        },
+        "combineFilters": "OR",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        2032,
+        -240
+      ],
+      "id": "b92c366b-9a8c-4f7f-a0c4-1cfd26c0a250",
+      "name": "Get row(s) in sheet",
+      "executeOnce": true,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "MiKwxAiFstuJU381",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        2752,
+        80
+      ],
+      "id": "0e57727a-b91a-4d53-b7cd-d65373725495",
+      "name": "Wait",
+      "webhookId": "ca8a6d95-3edf-4f47-93cf-7d58977e9305"
+    },
+    {
+      "parameters": {
+        "jsCode": "return items.map(item => {\n  const rawText =\n    item.json.output[0].content[0].text;\n\n  const parsed = JSON.parse(rawText);\n\n  return { json: parsed };\n});"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2432,
+        80
+      ],
+      "id": "1bcf5cec-cc50-4ac3-9494-8ab9b140bb8e",
+      "name": "Code in JavaScript"
+    },
+    {
+      "parameters": {
+        "mode": "chooseBranch"
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        1760,
+        -160
+      ],
+      "id": "0be8adb0-4703-4ef8-8171-c2bf1bbc771f",
+      "name": "Merge1"
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {}
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.3,
+      "position": [
+        -112,
+        128
+      ],
+      "id": "dce1057a-a2e2-4846-b203-9ebde439d134",
+      "name": "Schedule Trigger"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "Limit",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Limit": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request1": {
+      "main": [
+        [
+          {
+            "node": "Limit1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Limit1": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Edit Fields1": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 2
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request3": {
+      "main": [
+        [
+          {
+            "node": "Limit2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Limit2": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields2": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request4": {
+      "main": [
+        [
+          {
+            "node": "Limit3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Limit3": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields3": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 3
+          }
+        ]
+      ]
+    },
+    "HTTP Request5": {
+      "main": [
+        [
+          {
+            "node": "Limit4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Limit4": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields4": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 4
+          }
+        ]
+      ]
+    },
+    "Message a model1": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Insert documents": {
+      "main": [
+        [
+          {
+            "node": "Append row in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items": {
+      "main": [
+        [
+          {
+            "node": "Merge1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Message a model1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Convert to File": {
+      "main": [
+        [
+          {
+            "node": "Send a message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Append row in sheet": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get row(s) in sheet": {
+      "main": [
+        [
+          {
+            "node": "Convert to File",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "Insert documents",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript": {
+      "main": [
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge1": {
+      "main": [
+        [
+          {
+            "node": "Get row(s) in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request3",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "HTTP Request1",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "HTTP Request4",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "HTTP Request5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false,
+    "timeSavedMode": "fixed",
+    "callerPolicy": "workflowsFromSameOwner"
+  },
+  "versionId": "e62f735a-b483-4889-ad2c-701854814f95",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "582d17b9873c7ad06f45aa97bd96ba3a87374551154cbda4c09970bf81b70d4c"
+  },
+  "id": "4vyfxDH06zCCLmJt",
+  "tags": []
+}
